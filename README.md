@@ -5,36 +5,7 @@
   Shopify Skeleton Theme
 </h1>
 
-A minimal, carefully structured Shopify theme designed to help you quickly get started. Designed with modularity, maintainability, and Shopify's best practices in mind.
-
-<p align="center">
-  <a href="./LICENSE.md"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License"></a>
-  <a href="./actions/workflows/ci.yml"><img alt="CI" src="https://github.com/Shopify/skeleton-theme/actions/workflows/ci.yml/badge.svg"></a>
-</p>
-
-## Getting started
-
-### Prerequisites
-
-Before starting, ensure you have the latest Shopify CLI installed:
-
-- [Shopify CLI](https://shopify.dev/docs/api/shopify-cli) – helps you download, upload, preview themes, and streamline your workflows
-
-If you use VS Code:
-
-- [Shopify Liquid VS Code Extension](https://shopify.dev/docs/storefronts/themes/tools/shopify-liquid-vscode) – provides syntax highlighting, linting, inline documentation, and auto-completion specifically designed for Liquid templates
-
-### Clone
-
-Clone this repository using Git or Shopify CLI:
-
-```bash
-git clone git@github.com:Shopify/skeleton-theme.git
-# or
-shopify theme init
-```
-
-### Preview
+## Preview
 
 Preview this theme using Shopify CLI:
 
@@ -80,9 +51,11 @@ Blocks are made customizable by including a `{% schema %}` in the body. For more
 
 ## Schemas
 
-When developing components defined by schema settings, we recommend these guidelines to simplify your code:
+When developing components defined by schema settings, we recommend these guidelines to simplify your code.
 
-- **Single property settings**: For settings that correspond to a single CSS property, use CSS variables:
+### Single property settings
+
+For settings that correspond to a single CSS property, use CSS variables:
 
   ```liquid
   <div class="collection" style="--gap: {{ block.settings.gap }}px">
@@ -110,7 +83,9 @@ When developing components defined by schema settings, we recommend these guidel
   {% endschema %}
   ```
 
-- **Multiple property settings**: For settings that control multiple CSS properties, use CSS classes:
+### Multiple property settings
+
+For settings that control multiple CSS properties, use CSS classes:
 
   ```liquid
   <div class="collection {{ block.settings.layout }}">
@@ -148,12 +123,6 @@ For CSS and JavaScript, we recommend using the [`{% stylesheet %}`](https://shop
 ### `critical.css`
 
 The Skeleton Theme explicitly separates essential CSS necessary for every page into a dedicated `critical.css` file.
-
-## Contributing
-
-We're excited for your contributions to the Skeleton Theme! This repository aims to remain as lean, lightweight, and fundamental as possible, and we kindly ask your contributions to align with this intention.
-
-Visit our [CONTRIBUTING.md](./CONTRIBUTING.md) for a detailed overview of our process, guidelines, and recommendations.
 
 ## License
 

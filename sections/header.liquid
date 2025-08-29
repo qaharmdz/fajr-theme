@@ -1,4 +1,4 @@
-<header>
+<header class="header header--{{ section.settings.layout }}">
   <h2 class="header__title">
     {{ shop.name | link_to: routes.root_url }}
   </h2>
@@ -50,12 +50,67 @@
     display: flex;
     gap: 1rem;
   }
+
+  header.header--stack {
+    flex-wrap: wrap;
+  }
+  header.header--stack .header__title {
+    flex: 0 0 100%;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  header.header--stack .header__menu {
+    flex: 1;                     /* take available space on left */
+  }
+
+  header.header--stack .header__icons {
+    flex: 0 auto;                /* stay on the right */
+    margin-left: auto;           /* push to far right */
+  }
+
+  header.header--middle {
+    position: relative;
+  }
+  header.header--middle .header__title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    order: 2;
+  }
+  header.header--middle .header__menu {
+    order: 1;
+  }
+  header.header--middle .header__icons {
+    order: 3;
+  }
+
 {% endstylesheet %}
 
 {% schema %}
 {
   "name": "t:general.header",
   "settings": [
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "t:general.layout",
+      "options": [
+        {
+          "value": "default",
+          "label": "Default"
+        },
+        {
+          "value": "stack",
+          "label": "Stack"
+        },
+        {
+          "value": "middle",
+          "label": "Logo Middle"
+        }
+      ],
+      "default": "default"
+    },
     {
       "type": "link_list",
       "id": "menu",
